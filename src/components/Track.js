@@ -1,10 +1,7 @@
 import { CardMedia, Card, Paper, CardContent, Typography, Box, Modal, LinearProgress } from '@mui/material'
 import React, { useState } from 'react'
 import Features from './Features';
-import IconButton from '@mui/material/IconButton';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+import Preview from './Preview';
 
 const style = {
     position: 'absolute',
@@ -20,10 +17,15 @@ const style = {
 
 export default function Track(props) {
     const { track } = props;
-    console.log(track);
-    const [open, setOpen] = React.useState(false);
+
+    const [open, setOpen] = useState(false);
+    const [preview, setPreview] = useState(track.preview_url);
+    const [audio, setAudio] = useState(new Audio(track.preview_url));
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        audio.pause();
+        setOpen(false);
+    };
 
     return (
         <div>
@@ -51,11 +53,7 @@ export default function Track(props) {
             >
                 <Box sx={style}>
                     <Paper sx={{ display: "flex", my: 1, maxWidth: '600px', mx: 'auto' }} elevation={4}>
-                        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute', width: 151, height: 151, background: 'rgba(0,0,0,.3)'}}>
-                            <IconButton aria-label="play/pause" >
-                                <PlayArrowIcon sx={{ height: 80, width: 80, color: 'rgba(255,255,255,.9)'}}/>
-                            </IconButton>
-                        </Box>
+                        {preview ? <Preview url={track.preview_url} audio={audio}/> : ''}
                         <Box
                             sx={{ width: 151, borderRadius: 1 }}
                             component="img"
