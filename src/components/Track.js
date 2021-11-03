@@ -11,7 +11,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 800,
+    width: '90%',
     bgcolor: 'background.paper',
     boxShadow: 12,
     p: 4,
@@ -50,10 +50,10 @@ export default function Track(props) {
                 onClose={handleClose}
             >
                 <Box sx={style}>
-                    <Paper sx={{ display: "flex", my: 1 }} elevation={4}>
-                        <Box sx={{display: 'flex', alignItems: 'center'}}>
-                            <IconButton aria-label="play/pause" sx={{ height: 60, width: 60, m: 1 }} >
-                                <PlayArrowIcon sx={{ height: 40, width: 40}}/>
+                    <Paper sx={{ display: "flex", my: 1, maxWidth: '600px', mx: 'auto' }} elevation={4}>
+                        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute', width: 151, height: 151, background: 'rgba(0,0,0,.3)'}}>
+                            <IconButton aria-label="play/pause" >
+                                <PlayArrowIcon sx={{ height: 80, width: 80, color: 'rgba(255,255,255,.9)'}}/>
                             </IconButton>
                         </Box>
                         <Box
@@ -62,7 +62,7 @@ export default function Track(props) {
                             src={track.album.images[0].url}
                         />
                         <Box sx={{ margin: 1 }}>
-                            <Typography component="div" variant="h6">
+                            <Typography component="div" variant="h6" sx={{fontWeight: 'bold'}}>
                                 {track.name}
                             </Typography>
                             <Typography component="div" variant="subtitle1">

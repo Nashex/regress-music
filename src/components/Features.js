@@ -9,7 +9,7 @@ export default function Features(props) {
 
     const percentFeatures = ['acousticness', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']
     // Features without percentages duration_ms key loudness mode tempo time_signature
-
+    const otherFeatures = ['key', 'loudness', 'mode', 'tempo', 'time_signature']
     useEffect(() => {
         setFeatures(props.features);
         return () => {
@@ -22,19 +22,21 @@ export default function Features(props) {
     }
 
     return (
-        <Box sx={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }} >
-            <Typography variant='h6' sx={{flex: '0 1 100%', mx: 1, fontWeight: 'bold'}}>
-                Audio Features:
-            </Typography>
-            {
-                Object.keys(features).filter(key => percentFeatures.includes(key)).map(key => {
-                    const value = features[key]
-                    return (
-                        <Chip label={`${key}: ${(value).toFixed(2)}`} sx={{margin: .5}} color="primary" variant="outlined" icon={<MusicNote />} />
+        <div>
+            <Box sx={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", width: '80%', py: 1, mx: 'auto', textAlign: 'center' }} >
+                <Typography variant='h6' sx={{ flex: '0 1 100%', m: 1, fontWeight: 'bold' }}>
+                    Calculated Features:
+                </Typography>
+                {
+                    Object.keys(features).filter(key => percentFeatures.includes(key)).map(key => {
+                        const value = features[key]
+                        return (
+                            <Chip label={`${key}: ${(value).toFixed(2)}`} sx={{ margin: .5 }} color="primary" variant="outlined" icon={<MusicNote />} />
 
-                    )
-                })
-            }
-        </Box>
+                        )
+                    })
+                }
+            </Box>
+        </div>
     )
 }
