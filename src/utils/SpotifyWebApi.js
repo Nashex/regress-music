@@ -14,30 +14,44 @@ class SpotifyWebApi {
       },
       json: true
     };
-  }
-  // your application requests authorization
-  
 
-  getSearchResults(query) {
-    return new Promise((res, rej) => {
+    new Promise((res, rej) => {
       request.post(this.authOptions, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-  
-          // use the access token to access the Spotify Web API
-          var token = body.access_token;
-          var options = {
-            url: `https://api.spotify.com/v1/search?q=${query}&type=track`,
-            headers: {
-              'Authorization': 'Bearer ' + token
-            },
-            json: true
-          };
-          request.get(options, function (error, response, body) {
-            res(body);
-          });
+          res(body.access_token);
         } else {
           rej(error);
         }
+      });
+    }).then(res => this.token = res);
+  }
+  
+  getAudioAnalysis(tracks) {
+    return new Promise((res, rej) => {
+      const options = {
+        url: `https://api.spotify.com/v1/audio-features?ids=${tracks.join(',')}`,
+        headers: {
+          'Authorization': 'Bearer ' + this.token
+        },
+        json: true
+      };
+      request.get(options, function (error, response, body) {
+        res(body);
+      });
+    });
+  }
+
+  getSearchResults(query) {
+    return new Promise((res, rej) => {
+      const options = {
+        url: `https://api.spotify.com/v1/search?q=${query}&type=track&limit=5`,
+        headers: {
+          'Authorization': 'Bearer ' + this.token
+        },
+        json: true
+      };
+      request.get(options, function (error, response, body) {
+        res(body);
       });
     })
   }
