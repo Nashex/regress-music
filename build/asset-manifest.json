@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/regress-music/static/css/main.c64c5b62.chunk.css",
-    "main.js": "/regress-music/static/js/main.fa1f6a8a.chunk.js",
-    "main.js.map": "/regress-music/static/js/main.fa1f6a8a.chunk.js.map",
-    "runtime-main.js": "/regress-music/static/js/runtime-main.afbe06e5.js",
-    "runtime-main.js.map": "/regress-music/static/js/runtime-main.afbe06e5.js.map",
-    "static/js/2.b4c7c852.chunk.js": "/regress-music/static/js/2.b4c7c852.chunk.js",
-    "static/js/2.b4c7c852.chunk.js.map": "/regress-music/static/js/2.b4c7c852.chunk.js.map",
-    "static/js/3.7ebb4402.chunk.js": "/regress-music/static/js/3.7ebb4402.chunk.js",
-    "static/js/3.7ebb4402.chunk.js.map": "/regress-music/static/js/3.7ebb4402.chunk.js.map",
+    "main.js": "/regress-music/static/js/main.e97a7115.chunk.js",
+    "main.js.map": "/regress-music/static/js/main.e97a7115.chunk.js.map",
+    "runtime-main.js": "/regress-music/static/js/runtime-main.e5c45f96.js",
+    "runtime-main.js.map": "/regress-music/static/js/runtime-main.e5c45f96.js.map",
+    "static/js/2.2e395af3.chunk.js": "/regress-music/static/js/2.2e395af3.chunk.js",
+    "static/js/2.2e395af3.chunk.js.map": "/regress-music/static/js/2.2e395af3.chunk.js.map",
+    "static/js/3.6f2e2440.chunk.js": "/regress-music/static/js/3.6f2e2440.chunk.js",
+    "static/js/3.6f2e2440.chunk.js.map": "/regress-music/static/js/3.6f2e2440.chunk.js.map",
     "index.html": "/regress-music/index.html",
     "static/css/main.c64c5b62.chunk.css.map": "/regress-music/static/css/main.c64c5b62.chunk.css.map",
-    "static/js/2.b4c7c852.chunk.js.LICENSE.txt": "/regress-music/static/js/2.b4c7c852.chunk.js.LICENSE.txt"
+    "static/js/2.2e395af3.chunk.js.LICENSE.txt": "/regress-music/static/js/2.2e395af3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.afbe06e5.js",
-    "static/js/2.b4c7c852.chunk.js",
+    "static/js/runtime-main.e5c45f96.js",
+    "static/js/2.2e395af3.chunk.js",
     "static/css/main.c64c5b62.chunk.css",
-    "static/js/main.fa1f6a8a.chunk.js"
+    "static/js/main.e97a7115.chunk.js"
   ]
 }

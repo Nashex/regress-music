@@ -1,7 +1,10 @@
-import { CardMedia, Card, Paper, CardContent, Typography, Box, Modal, LinearProgress } from '@mui/material'
+import { CardMedia, Card, Paper, CardContent, Typography, Box, Modal, Grid } from '@mui/material'
 import React, { useState } from 'react'
 import Features from './Features';
 import Preview from './Preview';
+import FeatureGraph from './FeatureGraph';
+import TrackAttributes from './TrackAttributes';
+
 
 const style = {
     position: 'absolute',
@@ -9,6 +12,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '90%',
+    maxWidth: '800px',
     bgcolor: 'background.paper',
     boxShadow: 12,
     p: 4,
@@ -37,7 +41,7 @@ export default function Track(props) {
                         image={track.album.images[0].url}
                     />
                     <CardContent>
-                        <Typography component="div" variant="h6">
+                        <Typography component="div" variant="h6" sx={{ fontWeight: 'bold' }}>
                             {track.name}
                         </Typography>
                         <Typography component="div" variant="subtitle1">
@@ -53,23 +57,41 @@ export default function Track(props) {
             >
                 <Box sx={style}>
                     <Paper sx={{ display: "flex", my: 1, maxWidth: '600px', mx: 'auto' }} elevation={4}>
-                        {preview ? <Preview url={track.preview_url} audio={audio}/> : ''}
+                        {preview ? <Preview url={track.preview_url} audio={audio} /> : ''}
                         <Box
                             sx={{ width: 151, borderRadius: 1 }}
                             component="img"
                             src={track.album.images[0].url}
                         />
                         <Box sx={{ margin: 1 }}>
-                            <Typography component="div" variant="h6" sx={{fontWeight: 'bold'}}>
+                            <Typography component="div" variant="h6" sx={{ fontWeight: 'bold' }}>
                                 {track.name}
                             </Typography>
                             <Typography component="div" variant="subtitle1">
                                 {track.artists[0].name}
                             </Typography>
-                            
+
                         </Box>
                     </Paper>
-                    <Features features={track.audio_features} />
+                    <Box justifyContent="center">
+                        <Typography variant='h6' sx={{ flex: '0 1 100%', m: 1, fontWeight: 'bold', textAlign: 'center' }}>
+                            Track Attributes
+                        </Typography>
+                        <TrackAttributes attributes={track.audio_features} />
+                    </Box>
+                    <Grid container sx={{ justifyContent: 'center' }}>
+                        <Typography variant='h6' sx={{ flex: '0 1 100%', m: 1, fontWeight: 'bold', textAlign: 'center' }}>
+                            Calculated Features
+                        </Typography>
+                        <Grid container xs={12} alignItems="center" justifyContent="center">
+                            <Grid item md={6} sm={8} xs={12}>
+                                <FeatureGraph features={track.audio_features} />
+                            </Grid>
+                            <Grid item md={6} sm={4} xs={12}>
+                                <Features features={track.audio_features} />
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Box>
             </Modal>
         </div>

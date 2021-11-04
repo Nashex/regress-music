@@ -1,7 +1,14 @@
 import { MusicNote } from '@mui/icons-material';
-import { Chip, CircularProgress, Typography } from '@mui/material';
+import { Paper, CircularProgress, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState, useEffect } from 'react'
+
+const styles = {
+    item: {
+        m: .5,
+        p: 1
+    }
+}
 
 export default function Features(props) {
     const [features, setFeatures] = useState(props.features || {})
@@ -23,15 +30,17 @@ export default function Features(props) {
 
     return (
         <div>
-            <Box sx={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", width: '80%', py: 1, mx: 'auto', textAlign: 'center' }} >
-                <Typography variant='h6' sx={{ flex: '0 1 100%', m: 1, fontWeight: 'bold' }}>
-                    Calculated Features:
-                </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignContent: 'center', flexWrap: "wrap", width: '80%', py: 1, mx: 'auto', textAlign: 'center' }} >
                 {
                     Object.keys(features).filter(key => percentFeatures.includes(key)).map(key => {
                         const value = features[key]
                         return (
-                            <Chip label={`${key}: ${(value).toFixed(2)}`} sx={{ margin: .5 }} color="primary" variant="outlined" icon={<MusicNote />} />
+                            //<Chip label={`${key}: ${(value).toFixed(2)}`} sx={{ margin: .5 }} color="primary" variant="outlined" icon={<MusicNote />} />
+                            <Paper sx={styles.item} key={key} variant="outlined">
+                                <Typography>
+                                    <span style={{fontWeight: 'bold'}}>{(key || "").charAt(0).toUpperCase() + (key || "").slice(1)}</span> {value.toFixed(2)}
+                                </Typography>
+                            </Paper>
 
                         )
                     })
