@@ -1,9 +1,10 @@
-import { CardMedia, Card, Paper, CardContent, Typography, Box, Modal, Grid } from '@mui/material'
+import { CardMedia, Card, Paper, CardContent, Typography, Box, Modal, Grid, IconButton, Button } from '@mui/material'
 import React, { useState } from 'react'
 import Features from './Features';
 import Preview from './Preview';
 import FeatureGraph from './FeatureGraph';
 import TrackAttributes from './TrackAttributes';
+import { Close } from '@mui/icons-material';
 
 
 const style = {
@@ -58,6 +59,7 @@ export default function Track(props) {
                 onClose={handleClose}
             >
                 <Box sx={style} elevation={10}>
+                    <Button sx={{position: 'absolute', left: 10, top: 3}} onClick={handleClose}>Close</Button>
                     <Paper sx={{ display: "flex", my: 1, maxWidth: '600px', mx: 'auto' }} elevation={4}>
                         {preview ? <Preview url={track.preview_url} audio={audio} /> : ''}
                         <Box
