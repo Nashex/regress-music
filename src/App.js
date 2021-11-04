@@ -30,13 +30,18 @@ function App() {
 
   return (
     <>
+      <AppBar position="relative" justifyContent="center" sx={{background: 'black'}}>
+          <Box
+              component="img"
+              src="./logo512.png"
+              sx={{ height: 60, width: 60, mx: 'auto', my: 1, cursor: 'pointer'}}
+              onClick={() => setTracks([])}
+            />
+      </AppBar>
       <Container >
         <Box sx={{ marginTop: 2 }} elevation={5}>
-          <Box display="flex" justifyContent="center">
-            <Typography variant="h4" sx={{ fontWeight: 'bold' }} onClick={() => setTracks([])}>
-              
-              Regress It | Music
-            </Typography>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            
           </Box>
           <Paper sx={{ my: 1 }} elevation={2}>
             <TextField
