@@ -17,6 +17,8 @@ const style = {
     boxShadow: 12,
     p: 4,
     borderRadius: 1,
+    maxHeight: '80vh',
+    overflowY: 'auto',
 };
 
 export default function Track(props) {
@@ -55,7 +57,7 @@ export default function Track(props) {
                 open={open}
                 onClose={handleClose}
             >
-                <Box sx={style}>
+                <Box sx={style} elevation={10}>
                     <Paper sx={{ display: "flex", my: 1, maxWidth: '600px', mx: 'auto' }} elevation={4}>
                         {preview ? <Preview url={track.preview_url} audio={audio} /> : ''}
                         <Box
