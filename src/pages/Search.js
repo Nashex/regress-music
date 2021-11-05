@@ -4,7 +4,6 @@ import Track from './../components/Track';
 import SpotifyWebApi from './../utils/SpotifyWebApi'
 import { useHistory } from 'react-router';
 import { parse } from "query-string";
-import { Timer } from '@mui/icons-material';
 
 let spotify = new SpotifyWebApi(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_CLIENT_SECRET);
 
@@ -25,16 +24,17 @@ export default function Search(props) {
     if (params.q && params.q.trim().length) {
       setSearch(params.q);
     }
-  }, []);
+  }, [props.location.search]);
 
   useEffect(() => {
-    console.log(search)
     if (search.trim().length) {
       spotify.getSearchResults(search).then(async (res) => {
         const trackRes = res.tracks.items
         await new Promise(res => setTimeout(res, 150));
         spotify.getAudioAnalysis(res.tracks.items.map(o => o.id)).then((res) => {
-          res.audio_features.forEach((o, i) => trackRes[i].audio_features = o);
+          if (res.audio_features) {
+            res.audio_features.forEach((o, i) => trackRes[i].audio_features = o);
+          }
         }).then(() => {
           setTracks(trackRes);
         });
@@ -48,10 +48,9 @@ export default function Search(props) {
       setTracks([]);
       history.push({
         pathname: '/',
-        search: ''
       });
     }
-  }, [search])
+  }, [history, search])
 
   const handleChange = async (event) => {
     setSearch(event.target.value);
