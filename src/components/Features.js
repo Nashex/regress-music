@@ -1,7 +1,6 @@
-import { MusicNote } from '@mui/icons-material';
-import { Paper, CircularProgress, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useState, useEffect } from 'react'
+import { Paper, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 
 const styles = {
     item: {
@@ -26,16 +25,15 @@ const styles = {
 
 export default function Features(props) {
     const [features, setFeatures] = useState(props.features || {})
-    console.log(features);
 
     const percentFeatures = ['acousticness', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']
-    const otherFeatures = ['key', 'loudness', 'mode', 'tempo', 'time_signature']
+
     useEffect(() => {
         setFeatures(props.features);
         return () => {
             setFeatures({});
         }
-    }, [features])
+    }, [features, props.features])
 
     if (!features) {
         return <></>

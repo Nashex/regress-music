@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Grid, Container, TextField, Typography, Paper, Box } from '@mui/material';
-
 import Track from './../components/Track';
 import SpotifyWebApi from './../utils/SpotifyWebApi'
+import { useHistory } from 'react-router';
+import { parse } from "query-string";
 
 const spotify = new SpotifyWebApi(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_CLIENT_SECRET);
 
@@ -13,11 +14,15 @@ const styles = {
     }
 }
 
-export default function Search() {
+export default function Search(props) {
     const [tracks, setTracks] = useState([]);
+    const history = useHistory();
+
+    const params = parse(props.location.search)
+    console.log(params)
 
     const handleChange = async (event) => {
-      const { value } = event.target
+      const { value } = event.target;
       if (value) {
         spotify.getSearchResults(value).then((res) => {
           const trackRes = res.tracks.items
@@ -27,9 +32,17 @@ export default function Search() {
             setTracks(trackRes);
           });
   
-        })
+        });
+        history.push({
+          pathname: '/search',
+          search: `q=${value}`
+        });
       } else {
         setTracks([]);
+        history.push({
+          pathname: '/',
+          search: ''
+        });
       }
     }
 

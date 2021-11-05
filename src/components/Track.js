@@ -6,7 +6,7 @@ export default function Track(props) {
     const { track } = props;
 
     const [open, setOpen] = useState(false);
-    const [audio, setAudio] = useState(new Audio(track.preview_url));
+    const audio = new Audio(track.preview_url);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         audio.pause();

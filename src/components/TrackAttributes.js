@@ -20,7 +20,6 @@ const styles = {
 export default function TrackAttributes(props) {
     const { attributes } = props;
 
-    const otherFeatures = ['key', 'loudness', 'mode', 'tempo', 'time_signature']
     const keys = ['C', 'C♯', 'D', 'D♯, E♭', 'E', 'F', 'F♯, G♭', 'G', 'G♯, A♭', 'A', 'A♯, B♭', 'B']
 
     return (

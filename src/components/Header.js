@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, Box } from '@mui/material';
+import { useHistory } from 'react-router';
 
 const styles = {
     thumbnail: {
@@ -7,16 +8,27 @@ const styles = {
         mx: 'auto',
         my: 1,
         cursor: 'pointer'
+    },
+    bar: {
+        background: 'black',
+        justifyContent: 'center',
     }
 }
 
 export default function Header() {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push('/');
+    }
+
     return (
-        <AppBar position="relative" justifyContent="center" sx={{ background: 'black' }}>
+        <AppBar position="relative" sx={styles.bar}>
             <Box
                 component="img"
                 src="./../../beatsLogo.png"
                 sx={styles.thumbnail}
+                onClick={handleClick}
             />
         </AppBar>
     )

@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Paper, Typography, Box, Modal, Grid, Button } from '@mui/material'
 
 import Features from './Features';
 import Preview from './Preview';
 import FeatureGraph from './FeatureGraph';
 import TrackAttributes from './TrackAttributes';
-
-import { Close } from '@mui/icons-material';
 
 const styles = {
     modal: {
@@ -85,7 +83,7 @@ export default function TrackModal(props) {
                     <Typography variant='h6' sx={styles.header}>
                         Calculated Features
                     </Typography>
-                    <Grid container xs={12} alignItems="center" justifyContent="center">
+                    <Grid container alignItems="center" justifyContent="center">
                         <Grid item md={6} sm={8} xs={12}>
                             <FeatureGraph features={track.audio_features} />
                         </Grid>

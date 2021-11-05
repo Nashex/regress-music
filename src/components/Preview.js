@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Box } from '@mui/material'
-import IconButton from '@mui/material/IconButton';
+import { Box, IconButton } from '@mui/material'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { style } from '@mui/system';
 import { Pause } from '@mui/icons-material';
 
 const styles = {
