@@ -20,9 +20,9 @@ export default function FeatureGraph(props) {
         datasets: [
             {
                 label: 'Audio Features',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(163, 23, 107, 0.2)',
+                borderColor: 'rgb(163, 23, 107)',
+    pointBackgroundColor: 'rgb(163, 23, 107)',
                 data: values
             }
         ],

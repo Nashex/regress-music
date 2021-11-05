@@ -33,8 +33,8 @@ function App() {
       <AppBar position="relative" justifyContent="center" sx={{background: 'black'}}>
           <Box
               component="img"
-              src="./logo512.png"
-              sx={{ height: 60, width: 60, mx: 'auto', my: 1, cursor: 'pointer'}}
+              src="./beatsLogo.png"
+              sx={{ height: 60, mx: 'auto', my: 1, cursor: 'pointer'}}
               onClick={() => setTracks([])}
             />
       </AppBar>
@@ -56,7 +56,7 @@ function App() {
                 Welcome to Regress it
               </Typography>
               <Typography variant="body1">
-                To look at songs audio features just type a query into the seach bar!
+                To look at a song's audio features just type a query into the search bar!
               </Typography>
             </Paper>
           ) : <></>}
