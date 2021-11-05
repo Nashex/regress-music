@@ -1,7 +1,5 @@
-import { VpnKey, VpnKeyOutlined } from '@mui/icons-material';
-import { Grid, Stack, Item, Paper, Typography } from '@mui/material';
-import { Box, style } from '@mui/system';
 import React from 'react'
+import { Grid, Paper, Typography, Box } from '@mui/material';
 
 const styles = {
     stack: {
@@ -30,27 +28,27 @@ export default function TrackAttributes(props) {
             <Box direction="row" spacing={2} sx={styles.stack} justifyContent="center">
                 <Paper sx={styles.item} variant="outlined">
                     <Typography>
-                        <span style={{fontWeight: 'bold'}}>Key:</span> {keys[attributes.key]}
+                        <span style={styles.labels}>Key:</span> {keys[attributes.key]}
                     </Typography>
                 </Paper>
                 <Paper sx={styles.item} variant="outlined">
                     <Typography>
-                        <span style={{fontWeight: 'bold'}}>Loudness:</span> {attributes.loudness} DB
+                        <span style={styles.labels}>Loudness:</span> {attributes.loudness} DB
                     </Typography>
                 </Paper>
                 <Paper sx={styles.item} variant="outlined">
                     <Typography>
-                        <span style={{fontWeight: 'bold'}}>Mode:</span> {attributes.mode ? 'Major' : 'Minor'}
+                        <span style={styles.labels}>Mode:</span> {attributes.mode ? 'Major' : 'Minor'}
                     </Typography>
                 </Paper>
                 <Paper sx={styles.item} variant="outlined">
                     <Typography>
-                        <span style={{fontWeight: 'bold'}}>Tempo:</span> {attributes.tempo.toFixed(2)} BPM
+                        <span style={styles.labels}>Tempo:</span> {attributes.tempo.toFixed(2)} BPM
                     </Typography>
                 </Paper>
                 <Paper sx={styles.item} variant="outlined">
                     <Typography>
-                        <span style={{fontWeight: 'bold'}}>Time Signature:</span> {attributes.time_signature}
+                        <span style={styles.labels}>Time Signature:</span> {attributes.time_signature}
                     </Typography>
                 </Paper>
             </Box>

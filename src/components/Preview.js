@@ -10,6 +10,17 @@ const styles = {
         height: 80,
         width: 80,
         color: 'rgba(255,255,255,.9)'
+    },
+    shadow: {
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 151,
+        minHeight: 151,
+        background: 'rgba(0,0,0,.3)',
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
     }
 }
 
@@ -24,17 +35,12 @@ export default function Preview(props) {
             audio.play();
         }
         setPlay(!play);
-      }
+    }
 
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute', width: 151, height: 151, background: 'rgba(0,0,0,.3)' }}>
+        <Box sx={styles.shadow}>
             <IconButton aria-label="play/pause" onClick={togglePlay}>
-                {
-                    !play ?
-                    <PlayArrowIcon sx={styles.button} />
-                    :
-                    <Pause sx={styles.button} />
-                }
+                { !play ? <PlayArrowIcon sx={styles.button} /> : <Pause sx={styles.button} /> }
             </IconButton>
         </Box>
 
