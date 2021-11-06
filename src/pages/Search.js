@@ -41,7 +41,7 @@ export default function Search(props) {
 
       });
       history.push({
-        pathname: '/search',
+        pathname: '/',
         search: `q=${search}`
       });
     } else {
