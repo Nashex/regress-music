@@ -99,7 +99,7 @@ export default function TrackModal(props) {
                         Genre Prediction
                     </Typography>
                     <Grid container alignItems="center" justifyContent="center">
-                        <Grid item md={10} sm={12} xs={12}>
+                        <Grid item md={9} sm={12} xs={12}>
                             <GenreGraph track={track} />
                         </Grid>
                     </Grid>

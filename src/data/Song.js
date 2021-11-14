@@ -1,4 +1,4 @@
-class Song {
+export default class Song {
     constructor(track) {
         this.track = track;
         this.audioFeatures = track.audio_features;
@@ -194,5 +194,3 @@ class Song {
             );
     }
 }
-
-module.exports = Song;
