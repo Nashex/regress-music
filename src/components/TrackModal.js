@@ -5,6 +5,8 @@ import Features from './Features';
 import Preview from './Preview';
 import FeatureGraph from './FeatureGraph';
 import TrackAttributes from './TrackAttributes';
+import Song from '../data/Song';
+import GenreGraph from './GenreGraph';
 
 const styles = {
     modal: {
@@ -49,7 +51,7 @@ export default function TrackModal(props) {
     const { track, audio, open, handleClose } = props
 
     const preview = track.preview_url || "";
-
+    
     return (
         <Modal
             open={open}
@@ -84,11 +86,21 @@ export default function TrackModal(props) {
                         Calculated Features
                     </Typography>
                     <Grid container alignItems="center" justifyContent="center">
-                        <Grid item md={6} sm={8} xs={12}>
+                        <Grid item md={4} sm={8} xs={12}>
                             <FeatureGraph features={track.audio_features} />
                         </Grid>
                         <Grid item md={6} sm={4} xs={12}>
                             <Features features={track.audio_features} />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid container justifyContent="center">
+                    <Typography variant='h6' sx={styles.header}>
+                        Genre Prediction
+                    </Typography>
+                    <Grid container alignItems="center" justifyContent="center">
+                        <Grid item md={10} sm={12} xs={12}>
+                            <GenreGraph track={track} />
                         </Grid>
                     </Grid>
                 </Grid>
