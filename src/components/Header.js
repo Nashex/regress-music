@@ -26,7 +26,7 @@ export default function Header() {
         <AppBar position="relative" sx={styles.bar}>
             <Box
                 component="img"
-                src="./../../beatsLogo.png"
+                src="./../../logo512.png"
                 sx={styles.thumbnail}
                 onClick={handleClick}
             />
